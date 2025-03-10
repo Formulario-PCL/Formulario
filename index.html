@@ -5,98 +5,97 @@
   <title>PLC – Consejos Tegucigalpa y Comayagüela</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    /* Reset básico y estilos generales */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente similar a Microsoft Forms */
-      background-color: #f0f2f5; /* Fondo similar a MS Forms, un poco menos blanco */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #d0ecea, #bbe4e4, #c4e9ea, #d4f4e5, #dcf4eb, #e4f4ed, #dcf4f4, #dceced);
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 30px; /* Más padding externo */
+      padding: 30px;
     }
     .form-wrapper {
-      background-color: #ffffff; /* Fondo blanco */
-      border: 1px solid #e0e0e0; /* Borde sutil */
-      border-radius: 5px; /* Bordes más redondeados */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-      max-width: 750px; /* Ancho máximo un poco mayor */
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      max-width: 750px;
       width: 100%;
       overflow: hidden;
     }
     .form-header {
-      background-color: #ffffff; /* Header blanco como MS Forms */
-      color: #212529; /* Color de texto oscuro */
-      padding: 25px; /* Más padding en el header */
-      text-align: left; /* Texto alineado a la izquierda */
-      font-size: 1.7em; /* Tamaño de fuente del header */
-      font-weight: 600; /* Negrita un poco más suave */
-      border-bottom: 1px solid #e0e0e0; /* Separador inferior */
+      background-color: #ffffff;
+      color: #212529;
+      padding: 25px;
+      text-align: left;
+      font-size: 1.7em;
+      font-weight: 600;
+      border-bottom: 1px solid #e0e0e0;
     }
     .form-container {
-      padding: 30px; /* Padding más amplio */
+      padding: 30px;
     }
     .question {
-      margin-bottom: 30px; /* Más espacio entre preguntas */
+      margin-bottom: 30px;
     }
     .question-title {
-      background-color: transparent; /* Sin fondo de color */
-      color: #343a40; /* Color de texto más oscuro para títulos */
-      text-align: left; /* Alineación a la izquierda */
-      padding: 0 0 10px 0; /* Padding solo abajo */
-      border-bottom: 2px solid #007bff; /* Línea inferior azul */
-      margin-bottom: 15px; /* Espacio después del título */
-      font-size: 1.2em; /* Tamaño del título */
-      font-weight: 500; /* Negrita media */
+      background-color: transparent;
+      color: #343a40;
+      text-align: left;
+      padding: 0 0 10px 0;
+      border-bottom: 2px solid #007bff;
+      margin-bottom: 15px;
+      font-size: 1.2em;
+      font-weight: 500;
     }
     .required {
-      color: #dc3545; /* Rojo para "requerido" */
+      color: #dc3545;
       margin-left: 5px;
     }
     .question-content {
-      text-align: left; /* Contenido a la izquierda */
+      text-align: left;
     }
     .question-content input[type="text"],
     .question-content input[type="number"],
     .question-content input[type="email"] {
-      width: 100%; /* Ancho completo */
-      padding: 12px 15px; /* Padding más vertical y horizontal */
-      border: 1px solid #ced4da; /* Borde gris claro */
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ced4da;
       border-radius: 4px;
       font-size: 1em;
       outline: none;
       transition: border-color 0.2s ease-in-out;
-      margin-top: 8px; /* Espacio superior */
+      margin-top: 8px;
     }
     .question-content input:focus {
-      border-color: #007bff; /* Azul al enfocar */
-      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Sombra azul al enfocar */
+      border-color: #007bff;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
     }
     .radio-group {
       display: flex;
-      flex-direction: column; /* Radio buttons en columna */
-      gap: 15px; /* Espacio entre radio buttons */
+      flex-direction: column;
+      gap: 15px;
       margin-top: 10px;
     }
     .radio-option {
       display: flex;
       align-items: center;
       padding: 8px 15px;
-      border: 1px solid #e0e0e0; /* Borde para cada opción */
+      border: 1px solid #e0e0e0;
       border-radius: 4px;
       transition: border-color 0.2s ease-in-out;
     }
     .radio-option:hover {
-      border-color: #007bff; /* Borde azul al pasar el mouse */
+      border-color: #007bff;
     }
     .radio-option input[type="radio"] {
       margin-right: 10px;
-      appearance: none; /* Eliminar estilos por defecto */
+      appearance: none;
       width: 18px;
       height: 18px;
       border: 1px solid #ced4da;
@@ -106,7 +105,7 @@
       position: relative;
     }
     .radio-option input[type="radio"]:checked {
-      border: 1px solid #007bff; /* Borde azul al seleccionar */
+      border: 1px solid #007bff;
     }
     .radio-option input[type="radio"]:checked::before {
       content: '';
@@ -117,63 +116,58 @@
       transform: translate(-50%, -50%);
       width: 10px;
       height: 10px;
-      background-color: #007bff; /* Círculo interior azul al seleccionar */
+      background-color: #007bff;
       border-radius: 50%;
     }
-
-
     .submit-button {
-      background-color: #007bff; /* Azul principal */
+      background-color: #007bff;
       color: #fff;
       border: none;
-      padding: 15px 25px; /* Padding más grande para el botón */
+      padding: 15px 25px;
       font-size: 1.1em;
       cursor: pointer;
       border-radius: 5px;
       transition: background-color 0.3s ease;
-      margin-top: 25px; /* Más margen superior */
-      width: 100%; /* Ancho completo del contenedor */
-      display: block; /* Botón en bloque */
-      text-align: center; /* Centrar texto dentro del botón */
+      margin-top: 25px;
+      width: 100%;
+      display: block;
+      text-align: center;
     }
     .submit-button:hover {
-      background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+      background-color: #0056b3;
     }
-
-    /* Estilo para los mensajes de validación de campos requeridos */
-
-
+    input:invalid {
+      box-shadow: none;
+    }
     .validation-message {
-      display: none; /* Oculta por defecto el mensaje de validación */
-      background-color: #007bff; /* Fondo azul, mismo color que el botón */
-      color: white; /* Texto blanco */
-      padding: 10px 15px; /* Padding para el mensaje */
-      border-radius: 5px; /* Bordes redondeados */
-      margin-top: 5px; /* Margen superior para separarlo del input */
-      font-size: 0.9em; /* Tamaño de fuente un poco más pequeño */
-      text-align: left; /* Alineación del texto a la izquierda */
+      display: none;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin-top: 5px;
+      font-size: 0.9em;
+      text-align: left;
     }
-
-
     @media (max-width: 768px) {
       body {
-        padding: 10px; /* Reducir padding en pantallas pequeñas */
+        padding: 10px;
       }
       .form-container, .form-header {
-        padding: 20px; /* Reducir padding interno en pantallas pequeñas */
+        padding: 20px;
       }
       .form-header {
-        text-align: center; /* Centrar el header en pantallas pequeñas */
+        text-align: center;
         font-size: 1.5em;
       }
       .radio-group {
-        flex-direction: column; /* Asegurar columna en responsive */
+        flex-direction: column;
       }
       .radio-option {
-        flex-direction: row; /* Asegurar fila para las opciones */
+        flex-direction: row;
       }
       .radio-option label {
-        flex-grow: 1; /* Permitir que el label ocupe espacio */
+        flex-grow: 1;
       }
     }
   </style>
@@ -354,35 +348,30 @@
 
       form.addEventListener('submit', function(event) {
         if (!form.checkValidity()) {
-          event.preventDefault(); // Evita que se envíe el formulario si no es válido
+          event.preventDefault();
 
-          // Muestra los mensajes de validación para los campos inválidos
           const invalidFields = form.querySelectorAll(':invalid');
           invalidFields.forEach(field => {
-            const validationMessage = field.nextElementSibling; // Obtiene el mensaje hermano
+            const validationMessage = field.nextElementSibling;
             if (validationMessage && validationMessage.classList.contains('validation-message')) {
-              validationMessage.style.display = 'block'; // Muestra el mensaje
+              validationMessage.style.display = 'block';
             }
           });
         } else {
-          // Si el formulario es válido, puedes ocultar los mensajes de validación por si acaso
           const validationMessages = form.querySelectorAll('.validation-message');
           validationMessages.forEach(message => {
             message.style.display = 'none';
           });
-          // Aquí podrías añadir código adicional para manejar el envío exitoso del formulario
-          // como redireccionar a una página de éxito o mostrar un mensaje de confirmación.
         }
       });
 
-      // Opcional: Oculta los mensajes de validación al corregir los campos
       form.addEventListener('input', function(event) {
         if (event.target.classList.contains('question-content') || event.target.classList.contains('radio-group') || event.target.tagName === 'INPUT') {
           const inputField = event.target.closest('.question-content input, .question-content input, .radio-group input');
           if (inputField) {
             const validationMessage = inputField.nextElementSibling;
             if (validationMessage && validationMessage.classList.contains('validation-message')) {
-              validationMessage.style.display = 'none'; // Oculta el mensaje al empezar a escribir
+              validationMessage.style.display = 'none';
             }
           }
         }
