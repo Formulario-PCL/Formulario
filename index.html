@@ -12,7 +12,7 @@
       box-sizing: border-box;
     }
     body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-family: Arial, sans-serif;
       background-color: #f1f3f4;
       display: flex;
       justify-content: center;
@@ -21,7 +21,6 @@
       padding: 20px;
     }
     .form-wrapper {
-      /* Fondo tipo Google Forms: degradado sutil y bordes redondeados */
       background: linear-gradient(135deg, #ffffff, #f9f9f9);
       border: 1px solid #ddd;
       border-radius: 8px;
@@ -39,46 +38,56 @@
       font-weight: bold;
     }
     .form-container {
-      padding: 30px;
+      padding: 20px 30px 30px;
     }
-    .form-group {
-      margin-bottom: 20px;
+    .question {
+      margin-bottom: 25px;
     }
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
+    .question-title {
+      background-color: #006400; /* verde oscuro */
+      color: #fff;
+      text-align: center;
+      padding: 8px;
+      border-radius: 4px;
+      margin-bottom: 10px;
       font-size: 1.1em;
-      font-weight: bold;
-      color: #202124;
     }
-    .form-group .required {
+    .required {
       color: red;
-      margin-left: 4px;
     }
-    .form-group input[type="text"],
-    .form-group input[type="number"],
-    .form-group input[type="email"] {
-      width: 100%;
-      padding: 12px;
+    .question-content {
+      text-align: center;
+    }
+    .question-content input[type="text"],
+    .question-content input[type="number"],
+    .question-content input[type="email"] {
+      width: 90%;
+      padding: 10px;
       border: 1px solid #dadce0;
       border-radius: 4px;
       font-size: 1em;
       outline: none;
       transition: border-color 0.2s ease-in-out;
     }
-    .form-group input:focus {
+    .question-content input:focus {
       border-color: #4285F4;
     }
+    /* Para opciones de radio: centrado y ordenado */
     .radio-group {
-      margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
     }
     .radio-option {
-      display: flex;
-      align-items: center;
-      margin-bottom: 8px;
+      flex: 1 1 45%;
+      text-align: center;
+      padding: 5px;
+      border: 1px solid transparent;
+      border-radius: 4px;
     }
     .radio-option input[type="radio"] {
-      margin-right: 10px;
+      margin-right: 5px;
     }
     .submit-button {
       background-color: #4285F4;
@@ -90,14 +99,14 @@
       cursor: pointer;
       border-radius: 4px;
       transition: background-color 0.3s ease;
+      margin-top: 10px;
     }
     .submit-button:hover {
       background-color: #357ae8;
     }
-    /* Ajustes para dispositivos pequeños */
     @media (max-width: 768px) {
-      .form-wrapper {
-        max-width: 100%;
+      .radio-option {
+        flex: 1 1 100%;
       }
     }
   </style>
@@ -109,135 +118,164 @@
     </div>
     <div class="form-container">
       <form id="myForm" action="https://script.google.com/macros/s/AKfycbxpC4wskHJO-C2Wdzs3g5l5_7U7wOa5f5kY089BvvTCD46OkjLaCYV5ZsYwg3E7O_0LVA/exec" method="post">
-        <!-- 1. Estaca o Distrito -->
-        <div class="form-group">
-          <label>Estaca o Distrito<span class="required">*</span></label>
-          <div class="radio-group">
-            <div class="radio-option">
-              <input type="radio" id="distrito-intibuca" name="estaca_distrito" value="Distrito Intibuca" required>
-              <label for="distrito-intibuca">Distrito Intibuca</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="distrito-juticalpa" name="estaca_distrito" value="Distrito Juticalpa">
-              <label for="distrito-juticalpa">Distrito Juticalpa</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="distrito-monjaras" name="estaca_distrito" value="Distrito Monjaras">
-              <label for="distrito-monjaras">Distrito Monjaras</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="distrito-san-lorenzo" name="estaca_distrito" value="Distrito San Lorenzo">
-              <label for="distrito-san-lorenzo">Distrito San Lorenzo</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="estaca-choluteca" name="estaca_distrito" value="Estaca Choluteca">
-              <label for="estaca-choluteca">Estaca Choluteca</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="estaca-porvenir" name="estaca_distrito" value="Estaca Porvenir">
-              <label for="estaca-porvenir">Estaca Porvenir</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="estaca-comayagua" name="estaca_distrito" value="Estaca Comayagua">
-              <label for="estaca-comayagua">Estaca Comayagua</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="estaca-comayagüela" name="estaca_distrito" value="Estaca Comayagüela">
-              <label for="estaca-comayagüela">Estaca Comayagüela</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="estaca-bulevar" name="estaca_distrito" value="Estaca Bulevar">
-              <label for="estaca-bulevar">Estaca Bulevar</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="estaca-country" name="estaca_distrito" value="Estaca Country">
-              <label for="estaca-country">Estaca Country</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="estaca-torocagua" name="estaca_distrito" value="Estaca Torocagua">
-              <label for="estaca-torocagua">Estaca Torocagua</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="estaca-danli" name="estaca_distrito" value="Estaca Danli">
-              <label for="estaca-danli">Estaca Danli</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="estaca-tegucigalpa" name="estaca_distrito" value="Estaca Tegucigalpa">
-              <label for="estaca-tegucigalpa">Estaca Tegucigalpa</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="estaca-guaymuras" name="estaca_distrito" value="Estaca Guaymuras">
-              <label for="estaca-guaymuras">Estaca Guaymuras</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="estaca-la-esperanza" name="estaca_distrito" value="Estaca La Esperanza">
-              <label for="estaca-la-esperanza">Estaca La Esperanza</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="estaca-loarque" name="estaca_distrito" value="Estaca Loarque">
-              <label for="estaca-loarque">Estaca Loarque</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="estaca-roble-oeste" name="estaca_distrito" value="Estaca Roble Oeste">
-              <label for="estaca-roble-oeste">Estaca Roble Oeste</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="estaca-toncontin" name="estaca_distrito" value="Estaca Toncontín">
-              <label for="estaca-toncontin">Estaca Toncontín</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="estaca-uyuca" name="estaca_distrito" value="Estaca Uyuca">
-              <label for="estaca-uyuca">Estaca Uyuca</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="estaca-villa-olimpica" name="estaca_distrito" value="Estaca Villa Olimpica">
-              <label for="estaca-villa-olimpica">Estaca Villa Olimpica</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="mision-tegucigalpa" name="estaca_distrito" value="Misión Tegucigalpa">
-              <label for="mision-tegucigalpa">Misión Tegucigalpa</label>
-            </div>
-            <div class="radio-option">
-              <input type="radio" id="mision-comayagüela" name="estaca_distrito" value="Mision Comayagüela">
-              <label for="mision-comayagüela">Mision Comayagüela</label>
+        
+        <!-- Pregunta 1: Estaca o Distrito -->
+        <div class="question">
+          <div class="question-title">
+            Estaca o Distrito <span class="required">*</span>
+          </div>
+          <div class="question-content">
+            <div class="radio-group">
+              <div class="radio-option">
+                <input type="radio" id="distrito-intibuca" name="estaca_distrito" value="Distrito Intibuca" required>
+                <label for="distrito-intibuca">Distrito Intibuca</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="distrito-juticalpa" name="estaca_distrito" value="Distrito Juticalpa">
+                <label for="distrito-juticalpa">Distrito Juticalpa</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="distrito-monjaras" name="estaca_distrito" value="Distrito Monjaras">
+                <label for="distrito-monjaras">Distrito Monjaras</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="distrito-san-lorenzo" name="estaca_distrito" value="Distrito San Lorenzo">
+                <label for="distrito-san-lorenzo">Distrito San Lorenzo</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="estaca-choluteca" name="estaca_distrito" value="Estaca Choluteca">
+                <label for="estaca-choluteca">Estaca Choluteca</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="estaca-porvenir" name="estaca_distrito" value="Estaca Porvenir">
+                <label for="estaca-porvenir">Estaca Porvenir</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="estaca-comayagua" name="estaca_distrito" value="Estaca Comayagua">
+                <label for="estaca-comayagua">Estaca Comayagua</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="estaca-comayagüela" name="estaca_distrito" value="Estaca Comayagüela">
+                <label for="estaca-comayagüela">Estaca Comayagüela</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="estaca-bulevar" name="estaca_distrito" value="Estaca Bulevar">
+                <label for="estaca-bulevar">Estaca Bulevar</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="estaca-country" name="estaca_distrito" value="Estaca Country">
+                <label for="estaca-country">Estaca Country</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="estaca-torocagua" name="estaca_distrito" value="Estaca Torocagua">
+                <label for="estaca-torocagua">Estaca Torocagua</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="estaca-danli" name="estaca_distrito" value="Estaca Danli">
+                <label for="estaca-danli">Estaca Danli</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="estaca-tegucigalpa" name="estaca_distrito" value="Estaca Tegucigalpa">
+                <label for="estaca-tegucigalpa">Estaca Tegucigalpa</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="estaca-guaymuras" name="estaca_distrito" value="Estaca Guaymuras">
+                <label for="estaca-guaymuras">Estaca Guaymuras</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="estaca-la-esperanza" name="estaca_distrito" value="Estaca La Esperanza">
+                <label for="estaca-la-esperanza">Estaca La Esperanza</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="estaca-loarque" name="estaca_distrito" value="Estaca Loarque">
+                <label for="estaca-loarque">Estaca Loarque</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="estaca-roble-oeste" name="estaca_distrito" value="Estaca Roble Oeste">
+                <label for="estaca-roble-oeste">Estaca Roble Oeste</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="estaca-toncontin" name="estaca_distrito" value="Estaca Toncontín">
+                <label for="estaca-toncontin">Estaca Toncontín</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="estaca-uyuca" name="estaca_distrito" value="Estaca Uyuca">
+                <label for="estaca-uyuca">Estaca Uyuca</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="estaca-villa-olimpica" name="estaca_distrito" value="Estaca Villa Olimpica">
+                <label for="estaca-villa-olimpica">Estaca Villa Olimpica</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="mision-tegucigalpa" name="estaca_distrito" value="Misión Tegucigalpa">
+                <label for="mision-tegucigalpa">Misión Tegucigalpa</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" id="mision-comayagüela" name="estaca_distrito" value="Mision Comayagüela">
+                <label for="mision-comayagüela">Mision Comayagüela</label>
+              </div>
             </div>
           </div>
         </div>
         
-        <!-- 2. Barrio o Rama -->
-        <div class="form-group">
-          <label for="barrio">Barrio o Rama<span class="required">*</span></label>
-          <input type="text" id="barrio" name="barrio" required>
+        <!-- Pregunta 2: Barrio o Rama -->
+        <div class="question">
+          <div class="question-title">
+            Barrio o Rama <span class="required">*</span>
+          </div>
+          <div class="question-content">
+            <input type="text" id="barrio" name="barrio" required>
+          </div>
         </div>
         
-        <!-- 3. Llamamiento -->
-        <div class="form-group">
-          <label for="llamamiento">Llamamiento<span class="required">*</span></label>
-          <input type="text" id="llamamiento" name="llamamiento" required>
+        <!-- Pregunta 3: Llamamiento -->
+        <div class="question">
+          <div class="question-title">
+            Llamamiento <span class="required">*</span>
+          </div>
+          <div class="question-content">
+            <input type="text" id="llamamiento" name="llamamiento" required>
+          </div>
         </div>
         
-        <!-- 4. Nombre Completo -->
-        <div class="form-group">
-          <label for="nombre_completo">Nombre Completo<span class="required">*</span></label>
-          <input type="text" id="nombre_completo" name="nombre_completo" required>
+        <!-- Pregunta 4: Nombre Completo -->
+        <div class="question">
+          <div class="question-title">
+            Nombre Completo <span class="required">*</span>
+          </div>
+          <div class="question-content">
+            <input type="text" id="nombre_completo" name="nombre_completo" required>
+          </div>
         </div>
         
-        <!-- 5. Número de membresía sin Guiones -->
-        <div class="form-group">
-          <label for="numero_membresia">Número de membresía sin Guiones<span class="required">*</span></label>
-          <input type="text" id="numero_membresia" name="numero_membresia" required>
+        <!-- Pregunta 5: Número de membresía sin Guiones -->
+        <div class="question">
+          <div class="question-title">
+            Número de membresía sin Guiones <span class="required">*</span>
+          </div>
+          <div class="question-content">
+            <input type="text" id="numero_membresia" name="numero_membresia" required>
+          </div>
         </div>
         
-        <!-- 6. Número de Celular -->
-        <div class="form-group">
-          <label for="numero_celular">Número de Celular<span class="required">*</span></label>
-          <input type="number" id="numero_celular" name="numero_celular" required>
+        <!-- Pregunta 6: Número de Celular -->
+        <div class="question">
+          <div class="question-title">
+            Número de Celular <span class="required">*</span>
+          </div>
+          <div class="question-content">
+            <input type="number" id="numero_celular" name="numero_celular" required>
+          </div>
         </div>
         
-        <!-- 7. Correo Electrónico -->
-        <div class="form-group">
-          <label for="correo">Escribir su correo electrónico<span class="required">*</span></label>
-          <input type="email" id="correo" name="correo" required>
+        <!-- Pregunta 7: Correo Electrónico -->
+        <div class="question">
+          <div class="question-title">
+            Escribir su correo electrónico <span class="required">*</span>
+          </div>
+          <div class="question-content">
+            <input type="email" id="correo" name="correo" required>
+          </div>
         </div>
         
         <button type="submit" class="submit-button">Enviar</button>
