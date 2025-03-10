@@ -13,7 +13,7 @@
     }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente similar a Microsoft Forms */
-      background-color: #f8f9fa; /* Fondo muy claro */
+      background-color: #f0f2f5; /* Fondo similar a MS Forms, un poco menos blanco */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -132,13 +132,35 @@
       border-radius: 5px;
       transition: background-color 0.3s ease;
       margin-top: 25px; /* Más margen superior */
-      width: auto; /* Ancho automático */
+      width: 100%; /* Ancho completo del contenedor */
       display: block; /* Botón en bloque */
-      margin-left: auto; /* Alineado a la derecha */
+      text-align: center; /* Centrar texto dentro del botón */
     }
     .submit-button:hover {
       background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
     }
+
+    /* Estilo para los mensajes de validación de campos requeridos */
+    input:invalid {
+      box-shadow: none; /* Remueve la sombra por defecto de Chrome en campos inválidos */
+    }
+
+    input:invalid + .validation-message {
+      display: block; /* Muestra el mensaje de validación cuando el campo es inválido */
+    }
+
+
+    .validation-message {
+      display: none; /* Oculta por defecto el mensaje de validación */
+      background-color: #007bff; /* Fondo azul, mismo color que el botón */
+      color: white; /* Texto blanco */
+      padding: 10px 15px; /* Padding para el mensaje */
+      border-radius: 5px; /* Bordes redondeados */
+      margin-top: 5px; /* Margen superior para separarlo del input */
+      font-size: 0.9em; /* Tamaño de fuente un poco más pequeño */
+      text-align: left; /* Alineación del texto a la izquierda */
+    }
+
 
     @media (max-width: 768px) {
       body {
@@ -275,6 +297,7 @@
           </div>
           <div class="question-content">
             <input type="text" id="barrio" name="barrio" required>
+            <div class="validation-message">Este campo es obligatorio.</div>
           </div>
         </div>
 
@@ -284,6 +307,7 @@
           </div>
           <div class="question-content">
             <input type="text" id="llamamiento" name="llamamiento" required>
+            <div class="validation-message">Este campo es obligatorio.</div>
           </div>
         </div>
 
@@ -293,6 +317,7 @@
           </div>
           <div class="question-content">
             <input type="text" id="nombre_completo" name="nombre_completo" required>
+            <div class="validation-message">Este campo es obligatorio.</div>
           </div>
         </div>
 
@@ -302,6 +327,7 @@
           </div>
           <div class="question-content">
             <input type="text" id="numero_membresia" name="numero_membresia" required>
+            <div class="validation-message">Este campo es obligatorio.</div>
           </div>
         </div>
 
@@ -311,6 +337,7 @@
           </div>
           <div class="question-content">
             <input type="number" id="numero_celular" name="numero_celular" required>
+            <div class="validation-message">Este campo es obligatorio.</div>
           </div>
         </div>
 
@@ -320,6 +347,7 @@
           </div>
           <div class="question-content">
             <input type="email" id="correo" name="correo" required>
+            <div class="validation-message">Este campo es obligatorio.</div>
           </div>
         </div>
 
