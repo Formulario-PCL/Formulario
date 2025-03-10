@@ -20,7 +20,7 @@
       padding: 30px;
     }
     .form-wrapper {
-      background-color: #ffffff;
+      background: linear-gradient(to bottom, #f4fcfc, #ecf4fa, #e4f3f8, #dcf1fa, #ecfcfc, #f4fcf4, #f8fcfc, #f8fcfc);
       border: 1px solid #e0e0e0;
       border-radius: 5px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -135,19 +135,6 @@
     }
     .submit-button:hover {
       background-color: #0056b3;
-    }
-    input:invalid {
-      box-shadow: none;
-    }
-    .validation-message {
-      display: none;
-      background-color: #007bff;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 5px;
-      margin-top: 5px;
-      font-size: 0.9em;
-      text-align: left;
     }
     @media (max-width: 768px) {
       body {
@@ -284,7 +271,6 @@
           </div>
           <div class="question-content">
             <input type="text" id="barrio" name="barrio" required>
-            <div class="validation-message">Este campo es obligatorio.</div>
           </div>
         </div>
 
@@ -294,7 +280,6 @@
           </div>
           <div class="question-content">
             <input type="text" id="llamamiento" name="llamamiento" required>
-            <div class="validation-message">Este campo es obligatorio.</div>
           </div>
         </div>
 
@@ -304,7 +289,6 @@
           </div>
           <div class="question-content">
             <input type="text" id="nombre_completo" name="nombre_completo" required>
-            <div class="validation-message">Este campo es obligatorio.</div>
           </div>
         </div>
 
@@ -314,7 +298,6 @@
           </div>
           <div class="question-content">
             <input type="text" id="numero_membresia" name="numero_membresia" required>
-            <div class="validation-message">Este campo es obligatorio.</div>
           </div>
         </div>
 
@@ -324,7 +307,6 @@
           </div>
           <div class="question-content">
             <input type="number" id="numero_celular" name="numero_celular" required>
-            <div class="validation-message">Este campo es obligatorio.</div>
           </div>
         </div>
 
@@ -334,7 +316,6 @@
           </div>
           <div class="question-content">
             <input type="email" id="correo" name="correo" required>
-            <div class="validation-message">Este campo es obligatorio.</div>
           </div>
         </div>
 
@@ -342,41 +323,5 @@
       </form>
     </div>
   </div>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('myForm');
-
-      form.addEventListener('submit', function(event) {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-
-          const invalidFields = form.querySelectorAll(':invalid');
-          invalidFields.forEach(field => {
-            const validationMessage = field.nextElementSibling;
-            if (validationMessage && validationMessage.classList.contains('validation-message')) {
-              validationMessage.style.display = 'block';
-            }
-          });
-        } else {
-          const validationMessages = form.querySelectorAll('.validation-message');
-          validationMessages.forEach(message => {
-            message.style.display = 'none';
-          });
-        }
-      });
-
-      form.addEventListener('input', function(event) {
-        if (event.target.classList.contains('question-content') || event.target.classList.contains('radio-group') || event.target.tagName === 'INPUT') {
-          const inputField = event.target.closest('.question-content input, .question-content input, .radio-group input');
-          if (inputField) {
-            const validationMessage = inputField.nextElementSibling;
-            if (validationMessage && validationMessage.classList.contains('validation-message')) {
-              validationMessage.style.display = 'none';
-            }
-          }
-        }
-      });
-    });
-  </script>
 </body>
 </html>
