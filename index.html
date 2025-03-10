@@ -5,15 +5,15 @@
   <title>PLC – Consejos Tegucigalpa y Comayagüela</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    /* Reinicio básico */
+    /* Reset básico */
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f3f3f3;
+      background-color: #f1f3f4;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -21,23 +21,25 @@
       padding: 20px;
     }
     .form-wrapper {
-      background: white;
-      max-width: 600px;
-      width: 100%;
+      /* Fondo tipo Google Forms: degradado sutil y bordes redondeados */
+      background: linear-gradient(135deg, #ffffff, #f9f9f9);
       border: 1px solid #ddd;
-      border-radius: 4px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      width: 100%;
       overflow: hidden;
     }
     .form-header {
-      background-color: #0078D4; /* Color similar al de Office/Microsoft Forms */
-      color: white;
+      background-color: #4285F4;
+      color: #fff;
       padding: 20px;
       text-align: center;
-      font-size: 1.5em;
+      font-size: 1.8em;
+      font-weight: bold;
     }
     .form-container {
-      padding: 20px;
+      padding: 30px;
     }
     .form-group {
       margin-bottom: 20px;
@@ -45,18 +47,27 @@
     .form-group label {
       display: block;
       margin-bottom: 8px;
-      font-weight: 600;
-      font-size: 0.95em;
-      color: #333;
+      font-size: 1.1em;
+      font-weight: bold;
+      color: #202124;
+    }
+    .form-group .required {
+      color: red;
+      margin-left: 4px;
     }
     .form-group input[type="text"],
     .form-group input[type="number"],
     .form-group input[type="email"] {
       width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
+      padding: 12px;
+      border: 1px solid #dadce0;
       border-radius: 4px;
       font-size: 1em;
+      outline: none;
+      transition: border-color 0.2s ease-in-out;
+    }
+    .form-group input:focus {
+      border-color: #4285F4;
     }
     .radio-group {
       margin-bottom: 10px;
@@ -70,27 +81,23 @@
       margin-right: 10px;
     }
     .submit-button {
-      background-color: #0078D4;
-      color: white;
+      background-color: #4285F4;
+      color: #fff;
       border: none;
-      padding: 12px;
+      padding: 15px;
       width: 100%;
-      font-size: 1em;
+      font-size: 1.1em;
       cursor: pointer;
-      transition: background-color 0.3s ease;
       border-radius: 4px;
+      transition: background-color 0.3s ease;
     }
     .submit-button:hover {
-      background-color: #005A9E;
+      background-color: #357ae8;
     }
-    /* Ajustes responsivos */
-    @media(max-width: 600px) {
+    /* Ajustes para dispositivos pequeños */
+    @media (max-width: 768px) {
       .form-wrapper {
-        border: none;
-        box-shadow: none;
-      }
-      .form-header {
-        font-size: 1.3em;
+        max-width: 100%;
       }
     }
   </style>
@@ -104,7 +111,7 @@
       <form id="myForm" action="https://script.google.com/macros/s/AKfycbxpC4wskHJO-C2Wdzs3g5l5_7U7wOa5f5kY089BvvTCD46OkjLaCYV5ZsYwg3E7O_0LVA/exec" method="post">
         <!-- 1. Estaca o Distrito -->
         <div class="form-group">
-          <label>Estaca o Distrito</label>
+          <label>Estaca o Distrito<span class="required">*</span></label>
           <div class="radio-group">
             <div class="radio-option">
               <input type="radio" id="distrito-intibuca" name="estaca_distrito" value="Distrito Intibuca" required>
@@ -199,37 +206,37 @@
         
         <!-- 2. Barrio o Rama -->
         <div class="form-group">
-          <label for="barrio">Barrio o Rama</label>
+          <label for="barrio">Barrio o Rama<span class="required">*</span></label>
           <input type="text" id="barrio" name="barrio" required>
         </div>
         
         <!-- 3. Llamamiento -->
         <div class="form-group">
-          <label for="llamamiento">Llamamiento</label>
+          <label for="llamamiento">Llamamiento<span class="required">*</span></label>
           <input type="text" id="llamamiento" name="llamamiento" required>
         </div>
         
         <!-- 4. Nombre Completo -->
         <div class="form-group">
-          <label for="nombre_completo">Nombre Completo</label>
+          <label for="nombre_completo">Nombre Completo<span class="required">*</span></label>
           <input type="text" id="nombre_completo" name="nombre_completo" required>
         </div>
         
         <!-- 5. Número de membresía sin Guiones -->
         <div class="form-group">
-          <label for="numero_membresia">Número de membresía sin Guiones</label>
+          <label for="numero_membresia">Número de membresía sin Guiones<span class="required">*</span></label>
           <input type="text" id="numero_membresia" name="numero_membresia" required>
         </div>
         
         <!-- 6. Número de Celular -->
         <div class="form-group">
-          <label for="numero_celular">Número de Celular</label>
+          <label for="numero_celular">Número de Celular<span class="required">*</span></label>
           <input type="number" id="numero_celular" name="numero_celular" required>
         </div>
         
         <!-- 7. Correo Electrónico -->
         <div class="form-group">
-          <label for="correo">Escribir su correo electrónico</label>
+          <label for="correo">Escribir su correo electrónico<span class="required">*</span></label>
           <input type="email" id="correo" name="correo" required>
         </div>
         
