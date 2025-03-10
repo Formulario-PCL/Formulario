@@ -141,13 +141,6 @@
     }
 
     /* Estilo para los mensajes de validación de campos requeridos */
-    input:invalid {
-      box-shadow: none; /* Remueve la sombra por defecto de Chrome en campos inválidos */
-    }
-
-    input:invalid + .validation-message {
-      display: block; /* Muestra el mensaje de validación cuando el campo es inválido */
-    }
 
 
     .validation-message {
@@ -355,5 +348,46 @@
       </form>
     </div>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('myForm');
+
+      form.addEventListener('submit', function(event) {
+        if (!form.checkValidity()) {
+          event.preventDefault(); // Evita que se envíe el formulario si no es válido
+
+          // Muestra los mensajes de validación para los campos inválidos
+          const invalidFields = form.querySelectorAll(':invalid');
+          invalidFields.forEach(field => {
+            const validationMessage = field.nextElementSibling; // Obtiene el mensaje hermano
+            if (validationMessage && validationMessage.classList.contains('validation-message')) {
+              validationMessage.style.display = 'block'; // Muestra el mensaje
+            }
+          });
+        } else {
+          // Si el formulario es válido, puedes ocultar los mensajes de validación por si acaso
+          const validationMessages = form.querySelectorAll('.validation-message');
+          validationMessages.forEach(message => {
+            message.style.display = 'none';
+          });
+          // Aquí podrías añadir código adicional para manejar el envío exitoso del formulario
+          // como redireccionar a una página de éxito o mostrar un mensaje de confirmación.
+        }
+      });
+
+      // Opcional: Oculta los mensajes de validación al corregir los campos
+      form.addEventListener('input', function(event) {
+        if (event.target.classList.contains('question-content') || event.target.classList.contains('radio-group') || event.target.tagName === 'INPUT') {
+          const inputField = event.target.closest('.question-content input, .question-content input, .radio-group input');
+          if (inputField) {
+            const validationMessage = inputField.nextElementSibling;
+            if (validationMessage && validationMessage.classList.contains('validation-message')) {
+              validationMessage.style.display = 'none'; // Oculta el mensaje al empezar a escribir
+            }
+          }
+        }
+      });
+    });
+  </script>
 </body>
 </html>
